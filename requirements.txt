@@ -1,0 +1,14 @@
+aiohttp
+async-timeout
+chardet
+multidict
+python-engineio
+python-socketio
+six
+yarl
+eventlet
+asyncio
+mavsdk
+numpy
+aioredis
+redis

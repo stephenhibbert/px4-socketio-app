@@ -1,0 +1,43 @@
+services:
+  redis:
+    image: arm64v8/redis
+    environment:
+    #   ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - 6379:6379
+    network_mode: "host"
+  demo:
+    build: .
+    network_mode: "host"
+    depends_on:
+      - redis
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PYTHONUNBUFFERED: 1
+    
+    # Using host network so this isn't used
+    ports:
+      - 8082:8082
+      - 14540:14540/udp
+      - 14541:14541/udp
+      - 14542:14542/udp
+      - 14543:14543/udp
+      - 14544:14544/udp
+      - 14545:14545/udp
+      - 14546:14546/udp
+      - 14547:14547/udp
+      - 14548:14548/udp
+      - 14549:14549/udp
+      - 14550:14550/udp
+      - 14551:14551/udp
+      - 14552:14552/udp
+      - 14553:14553/udp
+      - 14554:14554/udp
+      - 14555:14555/udp
+      - 14556:14556/udp
+      - 14557:14557/udp
+      - 14558:14558/udp
+      - 14559:14559/udp
